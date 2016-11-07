@@ -1,0 +1,3 @@
+language: cpp
+compiler: gcc
+script: make -f src/makefile_shape.txt
