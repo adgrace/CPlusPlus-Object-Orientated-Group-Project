@@ -23,10 +23,12 @@ else
 endif
 
 PROGNAME=shape
+SRCPATH=src/shape
 
 PROG=$(PROGNAME)
 OBJ=$(PROGNAME).o
-SRC=$(PROGNAME).cpp
+SRC=$(SRCPATH).cpp
+
 
 $(PROG): $(OBJ)
 	 $(CC) $(OBJ) -L$(GLLIBDIR) -L$(GLUTLIBDIR) -L$(GLXLIB) $(GLLIB) -o $(PROG)
@@ -36,5 +38,3 @@ $(OBJ): $(SRC)
 
 clean: 
 	/bin/rm -rf $(OBJ) $(PROG)
-
-
