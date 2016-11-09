@@ -1,10 +1,10 @@
-"language": "cpp"
-"compiler": "gcc"
-"addons": {
-    "apt": {
-      "packages": [
-        "freeglut3-dev"
+language: cpp
+compiler: gcc
+addons: {
+    apt: {
+      packages: [
+        freeglut3-dev
       ]
     }
   },
-"script": "make -f makefile_shape.txt"
+script: make -f makefile_shape.txt
