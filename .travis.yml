@@ -1,9 +1,10 @@
 language: cpp
 compiler: g++
-
 before_install:
-  - sudo apt-get install libxmu-dev libxmu-headers
-  - sudo apt-get install libglib2.0-dev
-  - sudo apt-get install freeglut3-dev
-
+- sudo apt-get install libxmu-dev libxmu-headers
+- sudo apt-get install libglib2.0-dev
+- sudo apt-get install freeglut3-dev
 script: make -f makefile_shape.txt
+notifications:
+  slack:
+    secure: mm5hELg2g8hAJL72lwD+WpC8OHfMSmLMd+/asvSV4nsWXFWkjeb7ZbOsm35z6p6/jk2kkWNyzHGiDXLRsN9m1ju7h8i2Mvg4t0CvTG2uanQHliJDUk9FM/yD9JqKz2ufBySF+sKUfDvLSmvDluMO3FWFQ/qCniQg13OuzJVvsp+RG2izpne4N03WbaHsHBqkrNgHL5CggY9qzmDNHb4SmJ9O2cXvlM998gFDe8cb8LooBvOXkZ4bjDhUuqE+aycuD33ygutR8zDQT5uwQotrmRwnOAMO2AF+LkSbOiaZox7NRKmpChMfzw2EOt7IxJH5XUx1LLZD64RS4auNTfHFdqrM2inAylv34nM4dQ3CIv4Qzs4m76nBzjiWC40xTHLB5/Ko3eFrvHJtKeTyKkjYY0LXFphekCRM9Pv2qmpHGOvUll7J7OiYFH3DOtHZwNdgGRgqvDmXF+VNeUrwKkw81RxQNDVtZOtKg+b+dkFlENQEX6hXQjOI7EpkaZoLLCm0LHChw9OG++95kMYtsoxVNOxhq/WgT/CH4HeMGr5zUaodgnIqDTbNSzf8CwQ/GMQBKmogGFycI4JWp5GTKBJcqXB+QBZ61cI9lIRaZhjzlNVbHm8OR6TH5n57J3pMG71Dj/aFcgvEEd9TsqgMCsoBN4WkTDfSx7wAuQjoFGXqy+k=
