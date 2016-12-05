@@ -1,5 +1,7 @@
 #include "vector3f.h"
 
+//Functions explained in header file
+
 template <class T>
 Vector3<T> Vector3<T>::operator-(Vector3<T> other)
 {
@@ -19,6 +21,7 @@ Vector3<T> Vector3<T>::operator+(Vector3<T> other)
 
 	result.x = this->x + other.x;
 	result.y = this->y + other.y;
+	result.z = this->z + other.z;
 	result.z = this->z + other.z;
 
 	return result;

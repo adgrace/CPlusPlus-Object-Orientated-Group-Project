@@ -1,5 +1,7 @@
 #pragma once
 
+//Bass class that will allow transformations and polygons to be stored in one container class
+
 class Instruction 
 {
 public:
@@ -7,7 +9,8 @@ public:
 	Instruction() {};
 	~Instruction() {};
 
-	virtual void draw(void) = 0;
+	//Virutal function that will be used by transformations and polygons
+	virtual void draw(void) = 0; 
 
 protected:
 

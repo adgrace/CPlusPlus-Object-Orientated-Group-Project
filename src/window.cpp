@@ -1,5 +1,7 @@
 #include "window.h"
 
+//Functions explained in header file
+
 Window::Window(int argc, char** argv)
 {
 	glutInit(&argc, argv);
