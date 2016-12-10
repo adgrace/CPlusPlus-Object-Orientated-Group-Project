@@ -30,7 +30,7 @@ Vector3<T> Vector3<T>::operator+(Vector3<T> other)
 template <class T>
 Vector3<T> Vector3<T>::operator/(T other)
 {
-	Vector3 result;
+	Vector3<T> result;
 
 	result.x = this->x / other;
 	result.y = this->y / other;
@@ -42,7 +42,7 @@ Vector3<T> Vector3<T>::operator/(T other)
 template <class T>
 Vector3<T> Vector3<T>::operator*(T other)
 {
-	Vector3 result;
+	Vector3<T> result;
 
 	result.x = this->x * other;
 	result.y = this->y * other;
