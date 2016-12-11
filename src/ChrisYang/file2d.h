@@ -21,6 +21,6 @@ private:
 public:
     File2d(string fileName);
     void createInstructionVector();
-    vector getInstructionVector();
+    vector<Instruction*> getInstructionVector();
     ~File2d();
 };

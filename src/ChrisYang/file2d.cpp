@@ -54,6 +54,6 @@ void File2d::createInstructionVector() {
     openFile.close();
 }
 
-vector File2d::getInstructionVector(){
+vector<Instruction*> File2d::getInstructionVector(){
     return instruction_vector;
 }
