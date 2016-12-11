@@ -6,7 +6,7 @@
 std::vector<Instruction*> instrucions;
 
 int main(int argc, char**argv){
-    try{
+    // try{
         // Check whether there are 2 command line arguments
         // Throw error if the arguments are not 2.
         if(argc!=2){
@@ -20,16 +20,17 @@ int main(int argc, char**argv){
             //Create and run a window
             Window window(argc, argv);
         }
-    }
-    catch(BadFileException& e)
-    {
-        cerr<<"Unable to open file!"<<endl;
-    }
-    catch(const runtime_error& error)
-    {
-        cerr<<"Runtime exception"<<endl;
-    }
 }
+//     }
+//     catch(BadFileException& e)
+//     {
+//         cerr<<"Unable to open file!"<<endl;
+//     }
+//     catch(const runtime_error& error)
+//     {
+//         cerr<<"Runtime exception"<<endl;
+//     }
+// }
 
 //Function to draw the scene
 void draw()

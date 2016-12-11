@@ -22,8 +22,10 @@ void File2d::createInstructionVector() {
     ifstream openFile(selected_file.c_str());
 
     // Throw exception if the file cannot be open, catch in the main class.
-    if(!openFile.is_open()) throw BadFileException();
-
+    if(!openFile.is_open()) {
+        // throw BadFileException();
+        cerr<<"Unable to open file!"<<endl;
+    }
 
     cout<<"Reading file: "<<selected_file<<endl;
     string line;
@@ -37,27 +39,46 @@ void File2d::createInstructionVector() {
     // Create new instance for corresponding keywords.
 
         if(first_word == "TRANSLATE"){
-            Translate* next_translation = new Translate;
-            openFile>>*next_translation;
-            instruction_vector.push_back(next_translation); 
+            try{
+                Translate* next_translation = new Translate;
+                openFile>>*next_translation;
+                instruction_vector.push_back(next_translation); 
+            }catch(const runtime_error& error){
+                cerr<<"Error occured during createing new translate instance."<<endl;
+            }
         }
+
         else if(first_word == "SCALE"){
-            Scale* next_scale = new Scale;
-            openFile>>*next_scale;
-            instruction_vector.push_back(next_scale);
-            
+            try{
+                Scale* next_scale = new Scale;
+                openFile>>*next_scale;
+                instruction_vector.push_back(next_scale);    
+            }catch(const runtime_error& error){
+                cerr<<"Error occured during createing new scale instance."<<endl;
+            }
         }
+
         else if(first_word == "CIRCLE"){
-            Circle* next_circle = new Circle;
-            openFile>>*next_circle;
-            instruction_vector.push_back(next_circle);
+            try{
+                Circle* next_circle = new Circle;
+                openFile>>*next_circle;
+                instruction_vector.push_back(next_circle);    
+            }catch(const runtime_error& error){
+                cerr<<"Error occured during createing new circle instance."<<endl;
+            }
         }
+
         else if(first_word == "POLYGON"){
-            Polygon* next_polygon = new Polygon;
-            openFile>>*next_polygon;
-            instruction_vector.push_back(next_polygon);
+            try{
+                Polygon* next_polygon = new Polygon;
+                openFile>>*next_polygon;
+                instruction_vector.push_back(next_polygon);    
+            }catch(const runtime_error& error){
+                cerr<<"Error occured during createing new polygon instance."<<endl;
+            }
         }
     }
+    
     openFile.close();
 }
 
