@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include "translate.h"
 #include "scale.h"
 #include "circle.h"
