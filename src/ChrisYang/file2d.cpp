@@ -2,10 +2,13 @@
 
 
 File2d::File2d(string fileName){
+    vector<Instruction*> instruction_vector;
     selected_file = fileName;
 }
 
-File2d::~File2d() {}
+File2d::~File2d() {
+    delete [] instruction_vector;
+}
 
 string File2d::StringToUpper(string strToConvert) {
     transform(strToConvert.begin(), strToConvert.end(), strToConvert.begin(), ::toupper);
@@ -24,26 +27,33 @@ void File2d::createInstructionVector() {
         int strpos = line.find(" ");
         string first_word = line.substr(0, strpos);
         first_word = StringToUpper(first_word);
-        cout<<line<<endl;
-
 
         if(first_word == "TRANSLATE"){
-            openFile>>translate;
-
+            Translate* next_translation = new Translate;
+            openFile>>*next_translation;
+            instruction_vector = (vector3*)next_translation; 
         }
         else if(first_word == "SCALE"){
-            openFile>>scale;
+            Scale* next_scale = new Scale;
+            openFile>>*next_scale;
+            instruction_vector = (vector3*)next_scale;    
             
         }
         else if(first_word == "CIRCLE"){
-            cout<<"find CIRCLE at line "<<endl;
-            getline(openFile, line);
-            openFile>>circle;
+            Circle* next_circle = new Circle;
+            openFile>>next_circle;
+            instruction_vector = (vector3*)next_circle;
         }
         else if(first_word == "POLYGON"){
-            cout<<"find POLYGON at line "<<endl;
-            openFile>>polygon;
+            Polygon* next_polygon = new Polygon;
+            openFile>>next_polygon;
+            instruction_vector = (vector3*)next_polygon;
+
         }
     }
     openFile.close();
+}
+
+vector File2d::getInstructionVector(){
+    return instruction_vector;
 }
