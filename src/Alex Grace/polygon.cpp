@@ -39,11 +39,30 @@ void draw(void)
 friend std::istream& operator >> (std::istream& file, Polygon& polygon)		// modifying the input stream operator for a polygon
 {
 	string description;
-	file >> description;
-
+	int num_of_verts;
+	Vector3<GLfloat> temp_vector;
 	
-	file >> trasnformation.data.y;
-	file >> trasnformation.data.z;
+	file >> description;
+	if (description == "colour")
+	{
+		file >> polygon.colour.x;
+		file >> polygon.colour.y;
+		file >> polygon.colour.z;
+	}
+
+	file >> description;
+	if (description == "num_vert")
+	{
+		file >> num_of_verts;
+	}
+
+	for (int i =0; i < num_of_verts; i++ {
+		file >> temp_vector.x;
+		file >> temp_vector.y;
+		file >> temp_vector.z;
+		add_vertex(temp_vector);
+	}
+
 
 	return file;
 };
