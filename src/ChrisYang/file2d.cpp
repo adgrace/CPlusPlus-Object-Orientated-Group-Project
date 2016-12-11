@@ -18,11 +18,15 @@ string File2d::StringToUpper(string strToConvert) {
 }
 
 void File2d::createInstructionVector() {
-    ifstream openFile(selected_file.c_str());
-
-    // Throw exception if the file cannot be open, catch in the main class.
-    if(!openFile.is_open()) 
-        throw BadFileException();
+    // Throw exception if the file cannot be open.
+    try{
+        ifstream openFile(selected_file.c_str());    
+    }catch(BadFileException& ex){
+        cerr<<"Unable to open file!"<<endl;
+    }
+    
+    // if(!openFile.is_open()) 
+    //     throw BadFileException();
 
     // If the file is open, loop around the file to search for the words: translate, scale, circle, polygon.
     cout<<"Reading file: "<<selected_file<<endl;
@@ -60,9 +64,9 @@ void File2d::createInstructionVector() {
         }
         // Catch runtime exception and any other unexception exception
         catch(const runtime_error& error){
-            cerr<<"Runtime exception"<<endl;
+            cerr<<"Runtime exception: "<<error.what()<< endl;
         }
-        catch(,,,){
+        catch(...){
             cerr<<"Encouter exception"<<endl;
         }
     }
