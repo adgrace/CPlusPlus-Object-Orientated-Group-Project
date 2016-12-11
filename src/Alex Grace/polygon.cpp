@@ -38,7 +38,12 @@ void draw(void)
 
 friend std::istream& operator >> (std::istream& file, Polygon& polygon)		// modifying the input stream operator for a polygon
 {
+	string description;
+	file >> description;
+
 	
+	file >> trasnformation.data.y;
+	file >> trasnformation.data.z;
 
 	return file;
 };
