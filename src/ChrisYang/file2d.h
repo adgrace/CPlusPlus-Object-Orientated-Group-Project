@@ -6,7 +6,7 @@
 #include "scale.h"
 #include "circle.h"
 #include "polygon.h"
-#include "vector3f.h"
+// #include "vector3f.h"
 #include "instruction.h"
 
 class BadFileException{};
