@@ -2,6 +2,10 @@
 #include "file2d.h"
 #include "window.h"
 
+//Functions
+
+void draw();
+
 //Global vector of instances to be drawn
 std::vector<Instruction*> instrucions;
 
@@ -16,6 +20,7 @@ int main(int argc, char**argv){
             // Call the File2d class to read the text file
             File2d Assignment(argv[1]);
             Assignment.createInstructionVector();
+			instrucions = Assignment.getInstructionVector();
 
             //Create and run a window
             Window window(argc, argv);
@@ -27,8 +32,12 @@ int main(int argc, char**argv){
     }
     catch(const runtime_error& error)
     {
-        cerr<<"Runtime exception"<<endl;
+        cerr<<"Runtime exception: " << error.what() <<endl;
     }
+	catch(...)
+	{
+		cerr<<"Unknown Error!" << error.what() <<endl;
+	}
 }
 
 //Function to draw the scene
