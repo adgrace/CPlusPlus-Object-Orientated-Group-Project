@@ -1,10 +1,5 @@
 #pragma once
 
-#include <GL\glew.h>     
-#include <GL\freeglut.h>   
-#include <GL\glut.h>
-#include <GL\GLU.h>
-
 #include "polygon.h"
 
 //Class for Circle shape inheriting from the Polygon Class

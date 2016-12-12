@@ -2,7 +2,7 @@
 
 //Functions explained in header file
 
-void set_colour(const Vector3<GLfloat> new_colour)
+void Polygon::set_colour(const Vector3<GLfloat> new_colour)
 {
 	Vector3<GLfloat> temp;													// declares a tempary variable to hold the checked colour values
 	if ((new_colour.x >= 0) && (new_colour.x <= 1)) {						// checks if x value is within acceptable range
@@ -25,7 +25,7 @@ void set_colour(const Vector3<GLfloat> new_colour)
 	}
 };
 
-void draw(void)
+void Polygon::draw(void)
 {
 	glColor3f(colour.x, colour.y, colour.z);								//set colour
 	glBegin(GL_LINE_LOOP);													//start line 
@@ -45,15 +45,20 @@ friend std::istream& operator >> (std::istream& file, Polygon& polygon)		// modi
 	file >> description;
 	if (description == "colour")
 	{
-		file >> polygon.colour.x;
-		file >> polygon.colour.y;
-		file >> polygon.colour.z;
+		file >> temp_vector.x;
+		file >> temp_vector.y;
+		file >> temp_vector.z;
+		polygon.set_colour(temp_vector);
+	} else {
+		throw std::runtime_error("Error in file, was expecting colour first in Polygon object"); // Error : Message
 	}
 
 	file >> description;
 	if (description == "num_vert")
 	{
 		file >> num_of_verts;
+	} else {
+		throw std::runtime_error("Error in file, was expecting number of vertices Polygon object"); // Error : Message
 	}
 
 	for (int i =0; i < num_of_verts; i++ {
@@ -62,7 +67,6 @@ friend std::istream& operator >> (std::istream& file, Polygon& polygon)		// modi
 		file >> temp_vector.z;
 		add_vertex(temp_vector);
 	}
-
 
 	return file;
 };

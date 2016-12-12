@@ -1,10 +1,5 @@
 #pragma once
 
-#include <GL\glew.h>     
-#include <GL\freeglut.h>   
-#include <GL\glut.h>
-#include <GL\GLU.h>
-
 #include "instruction.h"
 #include "vector3.h"
 
@@ -18,7 +13,7 @@ class Polygon : public Instruction {														// create Polygon class inheri
 		void set_colour(const Vector3<GLfloat> new_colour);									// Setter: set colour of shapes line
 		void add_vertex(const Vector3<GLfloat> new_data) { verts.push_back(new_data); };	// Setter: adds vertexs to the vector that contains the vertexes
 
-		Vector3<GLfloat> get_colour() { return colour; };									// Getter: returns the colour
+		Vector3<GLfloat> get_colour() {return colour; };									// Getter: returns the colour
 		std::vector<Vector3<GLfloat>> get_verts() {return verts; };							// Getter: returns the full vector containing all the vertices
 
 		void draw(void);																	// Function called to draw the Polygon
